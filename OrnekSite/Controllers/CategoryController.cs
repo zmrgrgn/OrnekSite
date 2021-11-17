@@ -11,6 +11,7 @@ using OrnekSite.Models;
 
 namespace OrnekSite.Controllers
 {
+
     public class CategoryController : Controller
     {
         private DataContext db = new DataContext();
@@ -26,12 +27,14 @@ namespace OrnekSite.Controllers
         }
 
         // GET: Category
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View(db.Categoris.ToList());
         }
 
         // GET: Category/Details/5
+        [Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -47,6 +50,7 @@ namespace OrnekSite.Controllers
         }
 
         // GET: Category/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
@@ -56,6 +60,7 @@ namespace OrnekSite.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description")] Category category)
         {
@@ -70,6 +75,7 @@ namespace OrnekSite.Controllers
         }
 
         // GET: Category/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,6 +94,7 @@ namespace OrnekSite.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description")] Category category)
         {
@@ -101,6 +108,7 @@ namespace OrnekSite.Controllers
         }
 
         // GET: Category/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +125,7 @@ namespace OrnekSite.Controllers
 
         // POST: Category/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

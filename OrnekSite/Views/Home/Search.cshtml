@@ -11,7 +11,7 @@
             <ul class="nav nav-list">
                 @Html.Action("_CategoryList", "Category")
                 <li style="border:0"> &nbsp;</li>
-                <li> <a class="totalInCart" href="cart.html"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toplam tutar  </font></font><span class="badge badge-warning pull-right" style="line-height:18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">448,42 ABD doları</font></font></span></strong></a></li>
+                @Html.Action("Summary", "Cart")
             </ul>
         </div>
 

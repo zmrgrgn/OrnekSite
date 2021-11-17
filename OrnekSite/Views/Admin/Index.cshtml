@@ -1,0 +1,88 @@
+﻿@model OrnekSite.Models.StateModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content">
+    <div class="row">
+        @Html.Action("UserCount","Account")
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.UrunSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ürün Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="/Product/Index" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.SiparisSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sipariş Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="/Order/Index" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.BekleyenSiparisSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bekleyen Sipariş Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/Order/BekleyenSiparisler" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.TamamlananSiparisSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tamamlanan Sipariş Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/Order/TamamlananSiparisler" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.PaketlenenSiparisSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paketlenen Sipariş Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/Order/PaketlenenSiparisler" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.KargolananSiparisSayısı</font></font></h3>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kargolanan Sipariş Sayısı</font></font></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/Order/KargolananSiparisler" class="small-box-footer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayrıntılar </font></font><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div><!-- ./col --><!-- ./col -->
+    </div>
+</section>

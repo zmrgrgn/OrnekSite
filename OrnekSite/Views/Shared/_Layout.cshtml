@@ -35,11 +35,8 @@
                         <a href="#"><span class="icon-youtube"></span></a>
                         <a href="#"><span class="icon-tumblr"></span></a>
                     </div>
-                    <a class="active" href="index.html"> <span class="icon-home"></span> Home</a>
-                    <a href="#"><span class="icon-user"></span> My Account</a>
-                    <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                    <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-                    <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+                   
+                    @Html.Action("Summary1","Cart")
                 </div>
             </div>
         </div>
@@ -89,36 +86,12 @@
         <footer class="footer">
             <div class="row-fluid">
                 <div class="span2">
-                    <h5>Your Account</h5>
-                    <a href="#">YOUR ACCOUNT</a><br>
-                    <a href="#">PERSONAL INFORMATION</a><br>
-                    <a href="#">ADDRESSES</a><br>
-                    <a href="#">DISCOUNT</a><br>
-                    <a href="#">ORDER HISTORY</a><br>
-                </div>
-                <div class="span2">
-                    <h5>Iinformation</h5>
-                    <a href="contact.html">CONTACT</a><br>
-                    <a href="#">SITEMAP</a><br>
-                    <a href="#">LEGAL NOTICE</a><br>
-                    <a href="#">TERMS AND CONDITIONS</a><br>
-                    <a href="#">ABOUT US</a><br>
-                </div>
-                <div class="span2">
-                    <h5>Our Offer</h5>
-                    <a href="#">NEW PRODUCTS</a> <br>
-                    <a href="#">TOP SELLERS</a><br>
-                    <a href="#">SPECIALS</a><br>
-                    <a href="#">MANUFACTURERS</a><br>
-                    <a href="#">SUPPLIERS</a> <br />
-                </div>
-                <div class="span6">
-                    <h5>The standard chunk of Lorem</h5>
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
-                    those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
-                    Malorum" by Cicero are also reproduced in their exact original form,
-                    accompanied by English versions from the 1914 translation by H. Rackham.
-                </div>
+                    <h5>İLETİŞİM</h5>
+                    <a href="/Home/Adres">Adres</a><br>
+                    <a href="/Account/Register">Üye Ol</a><br>
+                    <a href="/Account/Login">Giriş</a><br>
+                    
+               
             </div>
         </footer>
     </div><!-- /container -->

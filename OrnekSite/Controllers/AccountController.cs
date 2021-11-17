@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using OrnekSite.Entity;
 using OrnekSite.Identity;
 using OrnekSite.Models;
 using System;
@@ -13,6 +14,8 @@ namespace OrnekSite.Controllers
 {
     public class AccountController : Controller
     {
+        DataContext db = new DataContext(); 
+
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<ApplicationRole> RoleManager;
         public AccountController()
@@ -37,6 +40,16 @@ namespace OrnekSite.Controllers
                 return View("Update");
             }
             return View(model);
+        }
+        public PartialViewResult UserCount()
+        {
+            var u = UserManager.Users;
+            return PartialView(u);
+        }
+        public ActionResult UserList()
+        {
+            var u = UserManager.Users;
+            return View(u);
         }
         public ActionResult UserProfil()
         {
@@ -133,7 +146,41 @@ namespace OrnekSite.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            var username = User.Identity.Name;
+            var order = db.Orders.Where(i => i.UserName == username).Select(i => new UserOrder
+            {
+                Id = i.Id,
+                OrderNumber = i.OrderNumber,
+                OrderState = i.OrderState,
+                OrderDate = i.OrderDate,
+                Total = i.Total
+            }).OrderByDescending(i => i.OrderDate).ToList();
+            return View(order);
+        }
+        public ActionResult Details(int id)
+        {
+            var model = db.Orders.Where(i => i.Id == id).Select(i => new OrderDetails()
+            {
+                OrderId = i.Id,
+                OrderNumber = i.OrderNumber,
+                Total = i.Total,
+                OrderDate = i.OrderDate,
+                OrderState = i.OrderState,
+                Adres = i.Adres,
+                Sehir = i.Sehir,
+                Semt = i.Semt,
+                Mahalle = i.Mahalle,
+                PostaKodu = i.PostaKodu,
+                OrderLines = i.OrderLines.Select(x => new OrderLineModel()
+                {
+                    ProductId = x.ProductId,
+                    Image = x.Product.image,
+                    ProductName = x.Product.Name,
+                    Quantity = x.Quantity,
+                    Price = x.Price
+                }).ToList()
+            }).FirstOrDefault();
+            return View(model);
         }
     }
 }

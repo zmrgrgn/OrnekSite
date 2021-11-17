@@ -14,6 +14,10 @@ namespace OrnekSite.Controllers
         {
             return PartialView(db.Products.Where(i => i.IsApproved && i.IsFeatured).Take(5).ToList());
         }
+        public ActionResult Adres()
+        {
+            return View();
+        }
         public ActionResult Search(string q)
         {
             var p = db.Products.Where(i => i.IsApproved == true);
