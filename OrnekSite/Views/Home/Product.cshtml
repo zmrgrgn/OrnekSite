@@ -1,0 +1,43 @@
+﻿@using OrnekSite.Entity
+@model IEnumerable<Product>
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toplam tutar  </font></font><span class="badge badge-warning pull-right" style="line-height:18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">448,42 ABD doları</font></font></span></strong></a></li>
+            </ul>
+        </div>
+
+        
+        @Html.Action("_FeaturedProductList", "Home")
+    </div>
+    <div class="span9">
+        <!--
+        New Products
+        -->
+        
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ürünler</font></font></h3>
+            
+                <ul class="thumbnails">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span3">
+                            <div class="thumbnail">
+                                
+                                <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/image/@item.image" style="max-width:207px; min-width:207px; max-height=268px; min-height=268px"alt=""></a>
+                                <div class="caption cntr">
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.Name</font></font></p>
+                                    <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item.Price</font></font></strong></p>
+                                    <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="Sepete ekle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Görüntüle </font></font></a></h4>
+                                    
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+    </div>
+</div>

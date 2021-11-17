@@ -1,0 +1,21 @@
+﻿@using OrnekSite.Entity
+@model IEnumerable<Product>
+    <h3>POPÜLER ÜRÜNLER</h3>
+
+<ul class="nav nav-list promowrapper">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="thumbnail">
+                <img src="~/Content/image/@item.image" alt="bootstrap e-ticaret şablonları">
+                <div class="caption">
+                    <h4><a class="defaultBtn" href="/Home/ProductDetails/@item.Id"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GÖRÜNTÜLE</font></font></a> 
+                        <span class="pull-right"><font style="vertical-align:inherit;"><font style="vertical-align:inherit;" size="2px">@item.Price (₺)</font></font></span></h4>
+                </div>
+            </div>
+        </li>
+        <li style="border:0"> &nbsp;</li>
+    }
+
+
+</ul>

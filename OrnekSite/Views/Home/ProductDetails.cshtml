@@ -1,0 +1,57 @@
+﻿@using OrnekSite.Entity
+@model Product
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toplam tutar  </font></font><span class="badge badge-warning pull-right" style="line-height:18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">448,42 ABD doları</font></font></span></strong></a></li>
+            </ul>
+        </div>
+
+        
+        @Html.Action("_FeaturedProductList", "Home")
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ana Sayfa </font></font></a> <span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></span></li>
+            <li><a href="/Home/Product"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ürünler </font></font></a> <span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></span></li>
+            <li class="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ürün Detay</font></font></li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        
+                            <div class="item active">
+                                <a href="#"> <img src="~/Content/image/@Model.image" alt="" style="width:100%"></a>
+                            </div>
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.Name</font></font></h3>
+                    <hr class="soft">
+
+                    <form class="form-horizontal qtyFrm">
+                        <div class="control-group">
+                            <label class="control-label"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.Price ₺</font></font></span></label>
+                        </div>
+                       
+                        <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.Stock</font></font></h4>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">@Model.Description</font> 
+                            </font>
+                        </p><p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Sepete ekle</font></font></button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <hr class="softn clr">
+
+        </div>
+    </div>
+</div>
